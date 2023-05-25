@@ -1,13 +1,43 @@
-from flask import Flask, render_template,request,url_for
+from flask import Flask, render_template,request,url_for,request
 import requests
 import re
 from bs4 import BeautifulSoup
 import requests
 import datetime
 from datetime import datetime
+from flask_mail import Mail, Message
 
 # app name
 app = Flask(__name__)
+
+app = Flask(__name__)
+
+# configure mail server
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'clintondeveloper6@gmail.com'
+app.config['MAIL_PASSWORD'] = 'ahgcmnoykytzpqlm'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+
+# initialize mail server
+mail = Mail(app)
+
+
+@app.route('/send-email', methods=['POST'])
+def send():
+    # get form data
+    if request.method == 'POST':
+        email = request.form['email']
+        subject = request.form['subject']
+        msg = request.form['message']
+
+        
+        message = Message(subject,recipients=['clintonmongare6@gmail.com'], body=msg, sender=request.form['email'])
+    
+        mail.send(message)
+        success = 'Message sent successfully'
+        return render_template('success.html', success=success) 
 
 
 def calculate_time_since_posted(html):
