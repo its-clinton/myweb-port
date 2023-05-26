@@ -1,16 +1,13 @@
-# a database - the the database will store my details, my projects,my skills,my projects,my services,my education,my contact details,my social media links,counter section details, testimonial details
-# using sql alchemy
-# create a database
 
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
-from flask import Flask, render_template, request, redirect, url_for
-
+from flask import Flask
 app = Flask(__name__)
+
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///portfolio.db'
 
 db = SQLAlchemy(app)
+
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -35,16 +32,12 @@ class Project(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(50), nullable = False)
     description = db.Column(db.String(50), nullable = False)
-    image = db.Column(db.String(50), nullable = False)
     type = db.Column(db.String(50), nullable = False)
-    date_created = db.Column(db.DateTime, default = datetime.utcnow)
 
-    def __init__(self, title, description, image,type, date_created):
+    def __init__(self, title, description,type):
         self.title = title
         self.description = description
-        self.image = image
         type = type
-        self.date_created = date_created
 
     def __repr__(self):
         return '<Title %r>' % self.title
@@ -110,16 +103,41 @@ class Contact(db.Model):
     def __repr__(self):
         return '<Title %r>' % self.email
 
-# create the database for the models
-def create_db(app):
-    db.init_app(app)
-    db.create_all(app = app)
-    print('Database created')
-
-if __name__ == '__main__':
-    create_db(app)
-
+class Social(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    title = db.Column(db.String(50), nullable = False)  
+    link = db.Column(db.String(50), nullable = False)
     
-
+    def __init__(self, title, link):
+        self.title = title
+        self.link = link
+        
+    def __repr__(self):
+        return '<Title %r>' % self.title
     
+class Counter(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    title = db.Column(db.String(50), nullable = False)
+    count = db.Column(db.Integer, nullable = False)
     
+    def __init__(self, title, count):
+        self.title = title
+        self.count = count
+        
+    def __repr__(self):
+        return '<Title %r>' % self.title
+    
+class Testimonial(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(50), nullable = False)
+    testimonial = db.Column(db.Text, nullable = False)
+    
+    def __init__(self, name, title,testimonial):
+        self.name = name
+        self.title = title
+        self.testimonial = testimonial
+        
+    def __repr__(self):
+        return '<Title %r>' % self.name
+    
+  

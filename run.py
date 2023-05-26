@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request,url_for,request
+from flask import Flask, render_template,request,url_for,request, current_app
 import requests
 import re
 from bs4 import BeautifulSoup
@@ -6,11 +6,16 @@ import requests
 import datetime
 from datetime import datetime
 from flask_mail import Mail, Message
+from models import db
+
+
+
 
 # app name
 app = Flask(__name__)
 
-app = Flask(__name__)
+
+db.init_app(app)
 
 # configure mail server
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -173,5 +178,8 @@ def certifications():
 
 # main function
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
+    
     
