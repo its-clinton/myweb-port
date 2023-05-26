@@ -33,7 +33,7 @@ def send():
         msg = request.form['message']
 
         
-        message = Message(subject,recipients=['clintonmongare6@gmail.com'], body=msg, sender=request.form['email'])
+        message = Message(subject,recipients=[mail.username], body=msg, sender=request.form['email'])
     
         mail.send(message)
         success = 'Message sent successfully'
