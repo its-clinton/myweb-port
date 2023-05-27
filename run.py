@@ -6,16 +6,19 @@ import requests
 import datetime
 from datetime import datetime
 from flask_mail import Mail, Message
-from models import db
-
-
-
+from models import *
 
 # app name
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
+
+    with app.app_context():
+        db.create_all()
+
+    return app
 
 
-db.init_app(app)
+# db.init_app(app)
 
 # configure mail server
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -33,16 +36,16 @@ mail = Mail(app)
 def send():
     # get form data
     if request.method == 'POST':
-        email = request.form['email']
+        sender_email = request.form['email']
         subject = request.form['subject']
-        msg = request.form['message']
+        message = request.form['message']
 
+        msg = Message(subject,sender = sender_email,recipients=[mail.username],body=message)
         
-        message = Message(subject,recipients=[mail.username], body=msg, sender=request.form['email'])
     
-        mail.send(message)
+        mail.send(msg)
         success = 'Message sent successfully'
-        return render_template('success.html', success=success) 
+        return render_template('success.html', success=success)
 
 
 def calculate_time_since_posted(html):
@@ -178,8 +181,8 @@ def certifications():
 
 # main function
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
     app.run(debug=True)
+    
+
     
     

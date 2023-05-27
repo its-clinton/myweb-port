@@ -2,9 +2,11 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 app = Flask(__name__)
+from flask_admin.contrib.sqla import ModelView
+from flask import current_app
 
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///portfolio.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///portfolio.sqlite3'
+app.config['SECRET_KEY'] = 'mysecret'
 
 db = SQLAlchemy(app)
 
@@ -140,4 +142,10 @@ class Testimonial(db.Model):
     def __repr__(self):
         return '<Title %r>' % self.name
     
+    
+# if __name__ == '__main__':
+#     with app.app_context():
+#       db.create_all()
+#       db.session.commit()
+#       db.session.close()
   
