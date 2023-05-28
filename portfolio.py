@@ -138,7 +138,8 @@ def calculate_time_since_posted(html):
     return time_since_posted
     return time_since_posted2
 
-# home page
+
+# # home page
 @app.route('/')
 def index():
 
