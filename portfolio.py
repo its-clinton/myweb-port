@@ -1,24 +1,41 @@
-from flask import Flask, render_template,request,url_for,request, current_app
+from flask import Flask, render_template,request,request
 import requests
-import re
 from bs4 import BeautifulSoup
 import requests
 import datetime
 from datetime import datetime
 from flask_mail import Mail, Message
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 from models import *
+from flask_migrate import Migrate
+
 
 # app name
-def create_app():
-    app = Flask(__name__)
 
-    with app.app_context():
-        db.create_all()
+app = Flask(__name__)
 
-    return app
+#db configuration
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'mysecret'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///admin.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.app_context().push()
+db.init_app(app)
 
+migrate = Migrate(app, db)
 
-# db.init_app(app)
+#admin view
+admin = Admin(app)
+admin.add_view(ModelView(User, db.session))
+admin.add_view(ModelView(Project, db.session))
+admin.add_view(ModelView(Skill, db.session))
+admin.add_view(ModelView(Service, db.session))
+admin.add_view(ModelView(Education, db.session))
+admin.add_view(ModelView(Contact, db.session))
+admin.add_view(ModelView(Social, db.session))
+admin.add_view(ModelView(Counter, db.session))
+admin.add_view(ModelView(Testimonial, db.session))
 
 # configure mail server
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
@@ -180,8 +197,11 @@ def certifications():
      return render_template('certifications.html')
 
 # main function
+
 if __name__ == '__main__':
     app.run(debug=True)
+    
+    
     
 
     
