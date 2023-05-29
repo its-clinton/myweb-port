@@ -10,8 +10,6 @@ from flask_admin.contrib.sqla import ModelView
 from models import *
 from flask_migrate import Migrate
 
-
-
 # app name
 
 app = Flask(__name__)
@@ -223,7 +221,7 @@ def certifications():
 # main function
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
     
     
     
