@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 
+
 db = SQLAlchemy()
 
 
@@ -12,11 +13,10 @@ class User(db.Model):
     profile_image = db.Column(db.String(100))
  
 class Project(db.Model):
-    __tablename__ = 'projects'
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(50), nullable = False)
-    description = db.Column(db.String(50), nullable = False)
-    type = db.Column(db.String(50), nullable = False)
+    category = db.Column(db.String(50), nullable = False)
+    date_posted = db.Column(db.String(50), nullable = False)
 
     
 class Skill(db.Model):
@@ -27,10 +27,9 @@ class Skill(db.Model):
 class Service(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(50), nullable = False)
-    description = db.Column(db.String(50), nullable = False)
+    description = db.Column(db.Text, nullable = False)
+   
   
-
-    
 class Education(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     institution = db.Column(db.String(50), nullable = False)

@@ -89,28 +89,28 @@
                 </div>
                 <div class="col-sm-6 col-md-7">
                   <div class="about-info">
-                    <p><span class="title-s">Name: </span> <span>Mongare clinton</span></p>
-                    <p><span class="title-s">Profile: </span> <span>Backend developer</span></p>
-                    <p><span class="title-s">Email: </span> <span>clintondeveloper6@gmail.com</span></p>
-                    <p><span class="title-s">Phone: </span> <span>+254742589890</span></p>
+                    <p><span class="title-s">Name: </span> <span>{{ user.name }}</span></p>
+                    <p><span class="title-s">Profile: </span> <span>{{ user.profile }}</span></p>
+                    <p><span class="title-s">Email: </span> <span>{{ user.email }}</span></p>
+                    <p><span class="title-s">Phone: </span> <span>{{ user.phonenumber }}</span></p>
                   </div>
                 </div>
               </div>
               <div class="skill-mf">
                 <p class="title-s">Skill</p>
-                <span>HTML</span> <span class="pull-right"></span>
+                <span>{{ skills[0].title }}</span> <span class="pull-right"></span>
                 <div class="progress">
                   <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <span>CSS3</span> <span class="pull-right"></span>
+                <span>{{ skills[1].title }}</span> <span class="pull-right"></span>
                 <div class="progress">
                   <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <span>PYTHON</span> <span class="pull-right"></span>
+                <span>{{ skills[2].title }}</span> <span class="pull-right"></span>
                 <div class="progress">
                   <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <span>JAVASCRIPT</span> <span class="pull-right"></span>
+                <span>{{ skills[3].title }}</span> <span class="pull-right"></span>
                 <div class="progress">
                   <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
@@ -164,9 +164,9 @@
             <span class="ico-circle"><i class="bi bi-bar-chart-line-fill"></i></span>
           </div>
           <div class="service-content">
-            <h2 class="s-title">Data Science</h2>
+            <h2 class="s-title">{{ services[0].title }}</h2>
             <p class="s-description text-center">
-             Am a Data Scientist and i have experience in experience in data analysis, data visualization, data cleaning, data preparation, and machine learning.
+              {{ services[0].description }}
             </p>
           </div>
         </div>
@@ -177,9 +177,9 @@
             <span class="ico-circle"><i class="bi bi-browser-edge"></i></span>
           </div>
           <div class="service-content">
-            <h2 class="s-title">Web Development</h2>
+            <h2 class="s-title">{{ services[1].title }}</h2>
             <p class="s-description text-center">
-              web development is my passion and i have experience in backend development. I have experience in python, javascript, html, css, flask and django.
+             {{ services[1].description }}
             </p>
           </div>
         </div>
@@ -190,9 +190,9 @@
             <span class="ico-circle"><i class="bi bi-window-dock"></i></span>
           </div>
           <div class="service-content">
-            <h2 class="s-title">Graphics Design</h2>
+            <h2 class="s-title">{{ services[2].title }}</h2>
             <p class="s-description text-center">
-              I worked around graphics design and i have worked with adobe photoshop, adobe illustrator, adobe premiere pro, figma, corel draw, and canva.
+              {{ services[2].description }}
             </p>
           </div>
         </div>
@@ -203,9 +203,9 @@
             <span class="ico-circle"><i class="bi bi-binoculars"></i></span>
           </div>
           <div class="service-content">
-            <h2 class="s-title">Responsive Design</h2>
+            <h2 class="s-title">{{ services[3].title }}</h2>
             <p class="s-description text-center">
-              Prototyping with figma and azure is one of my best skills that i enjoy. I have experience in creating responsive designs and prototypes for your applications.
+              {{ services[3].description }}
             </p>
           </div>
         </div>
@@ -216,9 +216,9 @@
             <span class="ico-circle"><i class="bi bi-database-gear"></i></span>
           </div>
           <div class="service-content">
-            <h2 class="s-title">Database Management</h2>
+            <h2 class="s-title">{{ services[4].title }}</h2>
             <p class="s-description text-center">
-            I can manage your database and i have skills in database management. I have interacted with mysql, postgresql, a bit of mongodb, and sqlite3.
+              {{ services[4].description }}
             </p>
           </div>
         </div>
@@ -229,9 +229,9 @@
             <span class="ico-circle"><i class="bi bi-gear-wide-connected"></i></span>
           </div>
           <div class="service-content">
-            <h2 class="s-title">System Administration</h2>
+            <h2 class="s-title">{{ services[5].title }}</h2>
             <p class="s-description text-center">
-              System Administration can be a headache but i can help really you with that. Playing with linux is like one of my hobies and i really enjoy it.
+              {{ services[5].description }}
             </p>
           </div>
         </div>
@@ -256,8 +256,8 @@
             <span class="ico-circle"><i class="bi bi-check"></i></span>
           </div>
           <div class="counter-num">
-            <p data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="counter purecounter"></p>
-            <span class="counter-text">WORKS COMPLETED</span>
+            <p data-purecounter-start="0" data-purecounter-end="{{ counters[0].count }}" data-purecounter-duration="1" class="counter purecounter"></p>
+            <span class="counter-text">{{ counters[0].title }}</span>
           </div>
         </div>
       </div>
@@ -267,8 +267,8 @@
             <span class="ico-circle"><i class="bi bi-journal-richtext"></i></span>
           </div>
           <div class="counter-num">
-            <p data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="counter purecounter"></p>
-            <span class="counter-text">YEARS OF EXPERIENCE</span>
+            <p data-purecounter-start="0" data-purecounter-end="{{ counters[1].count }}" data-purecounter-duration="1" class="counter purecounter"></p>
+            <span class="counter-text">{{ counters[1].title }}</span>
           </div>
         </div>
       </div>
@@ -278,8 +278,8 @@
             <span class="ico-circle"><i class="bi bi-people"></i></span>
           </div>
           <div class="counter-num">
-            <p data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="counter purecounter"></p>
-            <span class="counter-text">TOTAL CLIENTS</span>
+            <p data-purecounter-start="0" data-purecounter-end="{{ counters[2].count }}" data-purecounter-duration="1" class="counter purecounter"></p>
+            <span class="counter-text">{{ counters[2].title }}</span>
           </div>
         </div>
       </div>
@@ -289,8 +289,8 @@
             <span class="ico-circle"><i class="bi bi-award"></i></span>
           </div>
           <div class="counter-num">
-            <p data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="counter purecounter"></p>
-            <span class="counter-text">AWARD WON</span>
+            <p data-purecounter-start="0" data-purecounter-end="{{ counters[3].count }}" data-purecounter-duration="1" class="counter purecounter"></p>
+            <span class="counter-text">{{ counters[3].title }}</span>
           </div>
         </div>
       </div>
@@ -326,9 +326,9 @@
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">GrooveNet Music</h2>
+                    <h2 class="w-title">{{ Projects[5].title }}</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">14 April. 2023</span>
+                      <span class="w-ctegory">{{ Projects[5].category }}</span> / <span class="w-date">{{ Projects[5].date_posted }}</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -350,9 +350,9 @@
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">Sports WebApp</h2>
+                    <h2 class="w-title">{{ Projects[4].title }}</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">02 May. 2023</span>
+                      <span class="w-ctegory">{{ Projects[4].category }}</span> / <span class="w-date">{{ Projects[4].date_posted }}</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -374,9 +374,9 @@
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">SkiTrack App</h2>
+                    <h2 class="w-title">{{ Projects[3].title }}</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Prototyping</span> / <span class="w-date">15 December. 2022</span>
+                      <span class="w-ctegory">{{ Projects[3].category }}</span> / <span class="w-date">{{ Projects[3].date_posted }}</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -398,9 +398,9 @@
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">Flask Stock Tracker App</h2>
+                    <h2 class="w-title">{{ Projects[0].title }}</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">20 Oct. 2022</span>
+                      <span class="w-ctegory">{{ Projects[0].category }}</span> / <span class="w-date">{{ Projects[0].date_posted }}</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -422,9 +422,9 @@
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">Credit Card Detection</h2>
+                    <h2 class="w-title">{{ Projects[1].title }}</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Data Science</span> / <span class="w-date">14 May. 2023</span>
+                      <span class="w-ctegory">{{ Projects[1].category }}</span> / <span class="w-date">{{ Projects[1].date_posted }}</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -446,9 +446,9 @@
               <div class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">TMS</h2>
+                    <h2 class="w-title">{{ Projects[2].title }}</h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Internet of Things</span> / <span class="w-date">19 Feb. 2023</span>
+                      <span class="w-ctegory">{{ Projects[2].category }}</span> / <span class="w-date">{{ Projects[2].date_posted }}</span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -484,11 +484,11 @@
                 <div class="author-test">
                   <img style="height: 145px;width: 145px; margin: 0 auto;
                   border-radius: 50%;"  src="/static/assets/img/Samuel.jpg" alt="" class="img-fluid">
-                  <span class="author">Samuel Kiando</span>
+                  <span class="author">{{ Connfessions[0].name }}</span>
                 </div>
                 <div class="content-test">
                   <p class="description lead">
-                    I  have worked with Clinton for a while now and he is a great developer. He is a great team player and he is always ready to learn new things. He is a great asset to any team.
+                   {{ Connfessions[0].testimonial }}
                   </p>
                 </div>
               </div>
@@ -501,11 +501,11 @@
                 <div class="author-test">
                   <img style="height: 145px;width: 145px; margin: 0 auto;
                   border-radius: 50%;" src="/static/assets/img/Snave.jpg" alt="" class="img-fluid">
-                  <span class="author">Sudo Evans</span>
+                  <span class="author">{{ Connfessions[1].name }}</span>
                 </div>
                 <div class="content-test">
                   <p class="description lead">
-                  Personally I have done some collaborations with Clinton and I can assure you he is something.
+                    {{ Connfessions[1].testimonial }}
                   </p>
                 </div>
               </div>
@@ -674,17 +674,17 @@
                         I'm always available for freelance work if the right project comes along, Feel free to contact me!
                       </p>
                       <ul class="list-ico">
-                        <li><span class="bi bi-geo-alt"></span>Karatina Main Campus</li>
-                        <li><span class="bi bi-phone"></span>0742589890</li>
-                        <li><span class="bi bi-envelope"></span>clintondeveloper6@gmail.com</li>
+                        <li><span class="bi bi-geo-alt"></span>{{ Contacts.location }}</li>
+                        <li><span class="bi bi-phone"></span>{{ Contacts.phonenumber }}</li>
+                        <li><span class="bi bi-envelope"></span>{{ Contacts.email }}</li>
                       </ul>
                     </div>
                     <div class="socials">
                       <ul>
-                        <li><a href=" https://wa.me/0769077211" target="_blank"><span class="ico-circle"><i class="bi bi-whatsapp"></i></span></a></li>
-                        <li><a href="https://github.com/its-clinton" target="_blank"><span class="ico-circle"><i class="bi bi-github"></i></span></a></li>
-                        <li><a href="https://twitter.com/itsclinton4" target="_blank"><span class="ico-circle"><i class="bi bi-twitter"></i></span></a></li>
-                        <li><a href="https://www.linkedin.com/feed/" target="_blank"><span class="ico-circle"><i class="bi bi-linkedin"></i></span></a></li>
+                        <li><a href="{{ sociallinks[0].link }}" target="_blank"><span class="ico-circle"><i class="bi bi-whatsapp"></i></span></a></li>
+                        <li><a href=" {{ sociallinks[1].link }}" target="_blank"><span class="ico-circle"><i class="bi bi-github"></i></span></a></li>
+                        <li><a href="{{ sociallinks[2].link }}" target="_blank"><span class="ico-circle"><i class="bi bi-twitter"></i></span></a></li>
+                        <li><a href="{{ sociallinks[3].link }}" target="_blank"><span class="ico-circle"><i class="bi bi-linkedin"></i></span></a></li>
                       </ul>
                     </div>
                   </div>

@@ -11,6 +11,7 @@ from models import *
 from flask_migrate import Migrate
 
 
+
 # app name
 
 app = Flask(__name__)
@@ -178,8 +179,28 @@ def index():
     time_since_posted = calculate_time_since_posted(html[0])
     time_since_posted2 = calculate_time_since_posted(html[1])
     
+    # about me
+    users = User.query.all()
+    user = users[0]
+    
+    # skills
+    skills = Skill.query.all()
+    #services
+    services = Service.query.all()
+    #counter
+    counters = Counter.query.all()
+    #contact
+    mycontacts = Contact.query.all()
+    Contacts = mycontacts[0]
+    sociallinks = Social.query.all()
+    # testimonial
+    Connfessions = Testimonial.query.all()
+    Projects = Project.query.all()
 
-    return render_template('index.html',title=title, title2=title2, content=content, content2=content2, time_since_posted=time_since_posted,  time_since_posted2=time_since_posted2)
+
+    return render_template('index.html',title=title, title2=title2, content=content, content2=content2, time_since_posted=time_since_posted,  time_since_posted2=time_since_posted2,
+                           user=user,skills=skills,services=services,counters=counters,Contacts=Contacts,sociallinks=sociallinks,
+                           Connfessions=Connfessions,Projects=Projects)
 
 # project details
 @app.route('/project_details')
@@ -189,7 +210,9 @@ def portfolio_details():
 # education details
 @app.route('/education_details')
 def education_details():
-    return render_template('education.html')
+    #education
+    myeducation = Education.query.all()
+    return render_template('education.html', myeducation=myeducation)
 
 
 # certifications

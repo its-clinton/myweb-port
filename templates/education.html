@@ -36,16 +36,16 @@
     <nav id="navbar" class="navbar">
       <ul>
         <li><a class="nav-link scrollto active" href="/">Home</a></li>
-        <li><a class="nav-link scrollto" href="#about">About</a></li>
-        <li><a class="nav-link scrollto" href="#services">Services</a></li>
-        <li><a class="nav-link scrollto " href="#work">My Work</a></li>
-        <li><a class="nav-link scrollto " href="#blog">Blog</a></li>
+        <li><a class="nav-link scrollto" href="/#about">About</a></li>
+        <li><a class="nav-link scrollto" href="/#services">Services</a></li>
+        <li><a class="nav-link scrollto " href="/#work">My Work</a></li>
+        <li><a class="nav-link scrollto " href="/#blog">Blog</a></li>
         <li class="dropdown"><a href="#"><span>Background</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="/education_details">Basic Education</a></li>
           </ul>
         </li>
-        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
@@ -82,13 +82,13 @@
         <div class="col-md-4">
           <div class="service-box">
             <div class="service-content">
-              <h2 class="s-title">KARATINA UNIVERSITY</h2>
+              <h2 class="s-title">{{ myeducation[0].institution }}</h2>
               <p class="s-description text-center">
                 <ul class="list-unstyled" >
                     <li>Higher Education</li>
-                    <li">Bachelor of Degree in Computer Science</li>
-                    <li >Undergraduate</li>
-                    <li>2020 - ongoing</li>
+                    <li">{{ myeducation[0].course }}</li>
+                    <li>{{ myeducation[0].year_range }}</li>
+                      <li>{{ myeducation[0].grade }}</li>
                 </ul>
               </p>
             </div>
@@ -97,12 +97,12 @@
         <div class="col-md-4">
           <div class="service-box">
             <div class="service-content">
-              <h2 class="s-title">ST PATRICKS HIGH SCHOOL ITEN</h2>
+              <h2 class="s-title">{{ myeducation[1].institution }}</h2>
               <p class="s-description text-center">
                 <ul class="list-unstyled" >
-                    <li>Secondary Education</li>
-                    <li">2016 - 2019</li>
-                    <li >B Plain</li>
+                    <li>{{ myeducation[1].course }}</li>
+                    <li">{{ myeducation[1].year_range }}</li>
+                    <li >{{ myeducation[1].grade }}</li>
                 </ul>
               </p>
             </div>
@@ -111,12 +111,12 @@
         <div class="col-md-4">
           <div class="service-box">
             <div class="service-content">
-              <h2 class="s-title">EKERUBO GIE TAI BORDING PRIMARY SCHOOL</h2>
+              <h2 class="s-title">{{ myeducation[2].institution }}</h2>
               <p class="s-description text-center">
                 <ul class="list-unstyled" >
-                    <li>Primary Education</li>
-                    <li">2011 - 2015</li>
-                    <li >A-</li>
+                    <li>{{ myeducation[2].course }}</li>
+                    <li">{{ myeducation[2].year_range }}</li>
+                    <li >{{ myeducation[2].grade }}</li>
                 </ul>
               </p>
             </div>
