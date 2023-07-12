@@ -11,7 +11,7 @@
 
    <!-- Favicons -->
    <link href="/static/assets/img/iconic.png" rel="icon">
-   <!-- <link href="/static/assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
 
   <!-- Vendor CSS Files -->
   <link href="/static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,13 +36,14 @@
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto " href="#work">My Work</a></li>
-          <li><a class="nav-link scrollto " href="#blog">Blog</a></li>
+          <!--<li><a class="nav-link scrollto " href="#blog">Blog</a></li>-->
           <li class="dropdown"><a href="#"><span>Background</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/education_details">Basic Education</a></li>
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link" href="https://drive.google.com/file/d/1iUyB3hNaZ_o_YyLkaPacjeIel6rlvGpB/view?usp=drive_link">Download CV</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -70,7 +71,7 @@
 
   <main id="main">
 
-    
+
 
 
  <!-- ======= About Section ======= -->
@@ -244,7 +245,7 @@
 
 
 
-   
+
  <!-- ======= Counter Section ======= -->
  <div class="section-counter paralax-mf bg-image" style="background-image: url(/static/assets/img/counters-bg.jpg)">
   <div class="overlay-mf"></div>
@@ -494,7 +495,7 @@
               </div>
             </div>
             <!-- End testimonial item -->
-            
+
 
             <div class="swiper-slide">
               <div class="testimonial-box">
@@ -516,7 +517,7 @@
         </div>
 
         <!-- <div id="testimonial-mf" class="owl-carousel owl-theme">
-      
+
     </div> -->
       </div>
     </div>
@@ -525,94 +526,6 @@
 <!-- End Testimonials Section -->
 
 
-
-
-
- <!-- ======= Blog Section ======= -->
- <!-- <section id="blog" class="blog-mf sect-pt4 route">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="title-box text-center">
-          <h3 class="title-a">
-            Blog
-          </h3>
-          <p class="subtitle-a">
-            Check out my blog and what i have been up to.
-          </p>
-          <div class="line-mf"></div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card card-blog">
-          <div class="card-img">
-            <a href="https://medium.com/@clintonmongare6/programming-as-a-lifestyle-e04c96ead1a0"><img src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*odYEEJEWIEFRF2SxFIsFJg.jpeg" alt="" class="img-fluid"></a>
-          </div>
-          <div class="card-body">
-            <div class="card-category-box">
-              <div class="card-category">
-                <h6 class="category">
-                  {{title}}
-                </h6>
-              </div>
-            </div>
-            <h3 class="card-title"><a href="https://medium.com/@clintonmongare6/programming-as-a-lifestyle-e04c96ead1a0">See more ideas about programming as a lifestyle</a></h3>
-            <p class="card-description">
-             <br> {{ content }}
-            </p>
-          </div>
-          <div class="card-footer">
-            <div class="post-author">
-              <a href="#">
-                <img src="/static/assets/img/myimage.JPG" alt="" class="avatar rounded-circle">
-                <span class="author">Clinton Developer</span>
-              </a>
-            </div>
-            <div class="post-date">
-              <p><span><i class="bi bi-clock"></i></span> {{ time_since_posted }}</p> 
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-blog">
-          <div class="card-img">
-            <a href="https://medium.com/@clintonmongare6/the-internet-of-things-iot-is-transforming-the-world-f1761c32aaf2"><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*pVp_HGEPofPiTbtj.jpg" alt="" class="img-fluid"></a>
-          </div>
-          <div class="card-body">
-            <div class="card-category-box">
-              <div class="card-category">
-                <h6 class="category">
-                  {{title2}}
-                </h6>
-              </div>
-            </div>
-            <h3 class="card-title"><a href="https://medium.com/@clintonmongare6/the-internet-of-things-iot-is-transforming-the-world-f1761c32aaf2">See more ideas about Internet of Things' world</a></h3>
-            <p class="card-description">
-              {{ content2 }}
-            </p>
-          </div>
-          <div class="card-footer">
-            <div class="post-author">
-              <a href="#">
-                <img src="/static/assets/img/myimage.JPG" alt="" class="avatar rounded-circle">
-                <span class="author">Clinton Developer</span>
-              </a>
-            </div>
-            <div class="post-date">
-              <p><span><i class="bi bi-clock"></i></span> {{ time_since_posted2 }}</p> 
-            </div>
-          </div>
-        </div>
-      </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- End Blog Section -->
 
 
 
@@ -632,8 +545,8 @@
                       </h5>
                     </div>
                     <div>
-                      <!-- https://formspree.io/f/xpzeeqon -->
-                      <form action="/send-email" method="post" role="form" class="">
+
+                      <form action="/send_email" method="post" role="form" class="">
                       <form action="send_email.php" method="post" role="form">
                         <div class="row">
                           <div class="col-md-12 mb-3">
@@ -700,7 +613,7 @@
 
   </main><!-- End #main -->
 
- 
+
 
     <!-- ======= Footer ======= -->
     <footer>
